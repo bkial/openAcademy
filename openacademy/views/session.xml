@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!--actions-->
+        <record id="action_session" model="ir.actions.act_window">
+            <field name="name">session</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">openacademy.session</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!--menus-->
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="menu_session" name="Sessions" parent="menu_openacademy" action="action_session" sequence="4"/>
+
+
+        <!--form-->
+        <record id="from_session" model="ir.ui.view">
+            <field name="name">session.form</field>
+            <field name="model">openacademy.session</field>
+            <field name="arch" type="xml">
+                <form string="form_session">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="date_debut"/>
+                            <field name="duree"/>
+                            <field name="nbr_place"/>
+                            <field name="course_id"/>
+                            <field name="instructeur_id"/>
+                            <field name="participants"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--tree-->
+        <record id="tree_course" model="ir.ui.view">
+            <field name="name">course.tree</field>
+            <field name="model">openacademy.session</field>
+            <field name="arch" type="xml">
+                <tree string="tree">
+                    <field name="name"/>
+                    <field name="date_debut"/>
+                    <field name="duree"/>
+                    <field name="nbr_place"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--search-->
+        <record id="course_search_view" model="ir.ui.view">
+            <field name="name">course.search</field>
+            <field name="model">openacademy.session</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+    </data>
+</openerp>
