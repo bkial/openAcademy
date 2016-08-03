@@ -1,2 +1,2 @@
 import course
-import session
+import session,partner

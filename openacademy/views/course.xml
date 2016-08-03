@@ -25,15 +25,16 @@
                     <sheet>
                         <group>
                             <field name="name"/>
+                            <field name="resp_id"/>
+                            <field name="sessions"/>
+                        </group>
                             <notebook>
                                 <page string="Notebook">
                                     <group>
                                         <field name="description"/>
-                                        <field name="resp_id"/>
                                     </group>
                                 </page>
                             </notebook>
-                        </group>
                     </sheet>
                 </form>
             </field>
