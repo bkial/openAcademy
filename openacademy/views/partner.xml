@@ -3,7 +3,7 @@
     <data>
 
         <record id="action_partner" model="ir.actions.act_window">
-            <field name="name">partner.inherit</field>
+            <field name="name">Partner</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">res.partner</field>
             <field name="view_mode">tree,form</field>
@@ -25,12 +25,15 @@
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
 
-                <xpath expr="//field[@name='name']" position="after">
-                    <group>
+                <xpath expr="//field[@name='title']" position="after">
                     <field name="instructor"/>
-                    <field name="session_ids"/>
-                    </group>
                 </xpath>
+
+                <page name="sales_purchases" position="after">
+                    <page string="Sessions">
+                        <field name="session_ids"/>
+                    </page>
+                </page>
 
             </field>
         </record>
