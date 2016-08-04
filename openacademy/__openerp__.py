@@ -24,12 +24,16 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/security.xml',
+        'security/ir.model.access.csv',
         'templates.xml',
         'views/course.xml',
         'demo.xml',
         'views/session.xml',
         'views/partner.xml',
+        'workflow/session_workflow.xml',
+        'wizard/wizard.xml',
+
     ],
     # only loaded in demonstration mode
     'demo': [

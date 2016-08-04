@@ -16,7 +16,8 @@
         <record id="set_session_to_draft" model="ir.actions.server">
             <field name="name">Mettre la session en brouillon</field>
             <field name="model_id" ref="model_openacademy_session"/>
-            <field name="code">records = self.browse(cr,uid,context['active_ids'],context=context)records.action_draft()
+            <field name="code">records = self.browse(cr,uid,context['active_ids'],context=context)
+                records.action_draft()
             </field>
         </record>
 
@@ -70,19 +71,13 @@
             <field name="signal">draft</field>
         </record>
 
-                       <!-- Automatic Transitions -->
+        <!-- Automatic Transitions -->
 
         <record id="session_draft_to_confirmed_auto" model="workflow.transition">
             <field name="act_from" ref="draft"/>
             <field name="act_to" ref="confirmed"/>
             <field name="condition">taken_seats &gt; 50</field>
         </record>
-
-
-
-
-
-
 
     </data>
 </openerp>
