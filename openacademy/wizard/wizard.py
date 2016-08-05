@@ -18,7 +18,7 @@ class wizard(models.TransientModel):
     @api.one
     def action_add(self):
         for s in self.session_ids:
-            s.attendee_ids += self.attendee_ids
+            s.participants += self.attendee_ids
 
 wizard()
 
@@ -33,6 +33,6 @@ class course_wizard(models.TransientModel):
     def action_add(self):
         course_ids = self.env['openacademy.course'].browse(self._context['active_ids'])
         for c in course_ids:
-            c.responsible_id = self.resp_id
+            c.resp_id = self.resp_id
 
 course_wizard()

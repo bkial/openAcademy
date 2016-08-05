@@ -7,11 +7,10 @@
         <record id="session_wkf" model="workflow">
             <field name="name">Session workflow</field>
             <field name="osv">openacademy.session</field>
-            <field name="on_create">True</field>
         </record>
 
 
-        <!-- Action server definition -->
+        <!-- Action server definition >
 
         <record id="set_session_to_draft" model="ir.actions.server">
             <field name="name">Mettre la session en brouillon</field>
@@ -19,65 +18,59 @@
             <field name="code">records = self.browse(cr,uid,context['active_ids'],context=context)
                 records.action_draft()
             </field>
-        </record>
+        </record-->
 
         <!-- Activities definition -->
 
-        <record id="draft" model="workflow.activity">
-            <field name="name">Brouillon</field>
+        <record id="act_draft" model="workflow.activity">
+            <field name="name">draft</field>
             <field name="wkf_id" ref="session_wkf"/>
             <field name="flow_start" eval="True"/>
-            <field name="kind">dummy</field>
-            <field name="action_id" ref="set_session_to_draft"/>
+            <!--field name="action_id" ref="set_session_to_draft"/-->
         </record>
 
-        <record id="confirmed" model="workflow.activity">
-            <field name="name">Confirmée</field>
+        <record id="act_confirmed" model="workflow.activity">
+            <field name="name">confirmed</field>
             <field name="wkf_id" ref="session_wkf"/>
             <field name="kind">function</field>
             <field name="action">action_confirmed()</field>
         </record>
 
-        <record id="done" model="workflow.activity">
-            <field name="name">Terminée</field>
+        <record id="act_done" model="workflow.activity">
+            <field name="name">done</field>
             <field name="wkf_id" ref="session_wkf"/>
             <field name="kind">function</field>
             <field name="action">action_done()</field>
+            <field name="flow_stop">True</field>
         </record>
 
         <!-- Transitions definition -->
 
         <record id="session_draft_to_confirmed" model="workflow.transition">
-            <field name="act_from" ref="draft"/>
-            <field name="act_to" ref="confirmed"/>
-            <field name="signal">confirmed</field>
-        </record>
-
-        <record id="session_confirmed_to_draft" model="workflow.transition">
-            <field name="act_from" ref="confirmed"/>
-            <field name="act_to" ref="draft"/>
-            <field name="signal">draft</field>
+            <field name="act_from" ref="act_draft"/>
+            <field name="act_to" ref="act_confirmed"/>
+            <field name="signal">signal_confirmed</field>
         </record>
 
         <record id="session_confirmed_to_done" model="workflow.transition">
-            <field name="act_from" ref="confirmed"/>
-            <field name="act_to" ref="done"/>
-            <field name="signal">done</field>
+            <field name="act_from" ref="act_confirmed"/>
+            <field name="act_to" ref="act_done"/>
+            <field name="signal">signal_done</field>
         </record>
 
-        <record id="session_done_to_draft" model="workflow.transition">
+        <!--record id="session_done_to_draft" model="workflow.transition">
             <field name="act_from" ref="done"/>
             <field name="act_to" ref="draft"/>
-            <field name="signal">draft</field>
-        </record>
+            <field name="signal">signal_draft</field>
+        </record-->
 
-        <!-- Automatic Transitions -->
+        <!--Automatic Transitions >
 
         <record id="session_draft_to_confirmed_auto" model="workflow.transition">
-            <field name="act_from" ref="draft"/>
+            <field name="act_from" ref="act_draft"/>
             <field name="act_to" ref="confirmed"/>
             <field name="condition">taken_seats &gt; 50</field>
-        </record>
+        </record-->
 
     </data>
 </openerp>
