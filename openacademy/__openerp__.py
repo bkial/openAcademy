@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base','board'],
 
     # always loaded
     'data': [
@@ -33,7 +33,9 @@
         'views/partner.xml',
         'workflow/session_workflow.xml',
         'wizard/wizard.xml',
-
+        'report/session_report_qweb.xml',
+        'report/session_report_webkit.xml',
+        'dashboard/session_dashboard.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

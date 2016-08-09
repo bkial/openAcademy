@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from openerp import models,fields,api,exceptions
+from openerp import models,fields,api,exceptions,_
 from datetime import timedelta
 from dateutil import parser
 

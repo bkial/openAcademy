@@ -43,8 +43,8 @@
         </record>
 
         <!--tree-->
-        <record id="tree_course" model="ir.ui.view">
-            <field name="name">course.tree</field>
+        <record id="tree_session" model="ir.ui.view">
+            <field name="name">session.tree</field>
             <field name="model">openacademy.session</field>
             <field name="arch" type="xml">
                 <tree string="Session Tree" colors="blue:duree&lt;5;red:duree&gt;15">
@@ -59,8 +59,8 @@
         </record>
 
         <!--search-->
-        <record id="course_search_view" model="ir.ui.view">
-            <field name="name">course.search</field>
+        <record id="session_search_view" model="ir.ui.view">
+            <field name="name">session.search</field>
             <field name="model">openacademy.session</field>
             <field name="arch" type="xml">
                 <search>
