@@ -19,7 +19,7 @@
         </record>
 
         <record id="act_course_list" model="ir.actions.act_window">
-            <field name="name">Liste des courss</field>
+            <field name="name">Liste des cours</field>
             <field name="res_model">openacademy.course</field>
             <field name="view_mode">tree</field>
             <field name="view_type">form</field>
